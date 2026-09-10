@@ -1,6 +1,6 @@
-vim.lsp.enable('lua_ls')
-vim.lsp.enable('html')
-vim.lsp.enable('cssls')
-vim.lsp.enable('ts_ls')
-vim.lsp.enable('jsonls')
-vim.lsp.enable('pyright')
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local servers = { 'lua_ls', 'html', 'emmet_language_server', 'cssls', 'tailwindcss', 'ts_ls', 'jsonls', 'pyright', 'svelte' }
+
+for _, server in ipairs(servers) do
+  vim.lsp.enable(server, { capabilities = capabilities })
+end

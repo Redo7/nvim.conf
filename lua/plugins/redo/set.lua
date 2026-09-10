@@ -1,10 +1,13 @@
+vim.g.loaded_netrw = 0
+vim.g.loaded_netrwPlugin = 0
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+vim.opt.expandtab = false
 
 vim.opt.smartindent = true
 
@@ -30,3 +33,7 @@ vim.diagnostic.config({
     signs = true,
     underline = true,
 })
+
+-- Attempt to fix long SVGs breaking highlighting
+vim.opt.synmaxcol = 0
+vim.opt.maxmempattern = 2000
