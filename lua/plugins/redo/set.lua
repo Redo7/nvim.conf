@@ -37,3 +37,9 @@ vim.diagnostic.config({
 -- Attempt to fix long SVGs breaking highlighting
 vim.opt.synmaxcol = 0
 vim.opt.maxmempattern = 2000
+
+-- vim.opt.foldmethod = "expr"
+-- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+
+vim.opt.termguicolors = false
+vim.cmd.colorscheme("default")

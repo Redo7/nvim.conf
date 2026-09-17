@@ -44,7 +44,6 @@ vim.keymap.set("n", "<Esc>", ':noh<CR>')
 vim.keymap.set("n", "<leader>re", ":PxToRemLine<CR>")
 
 -- Code Action
-
 vim.keymap.set("n", "<leader>.", vim.lsp.buf.code_action, { desc = "Code Action" })
 
 -- Tabs
@@ -81,3 +80,9 @@ map('n', '<leader>w', '<Cmd>BufferClose<CR>', opts)
 -- Keep selection after indenting
 vim.keymap.set('v', '<', '<gv', { noremap = true })
 vim.keymap.set('v', '>', '>gv', { noremap = true })
+
+-- paste/delete register fix
+vim.keymap.set('v', 'd', '"_d', { noremap = true })
+vim.keymap.set('v', 'c', '"_c', { noremap = true })
+vim.keymap.set('n', 'd', '"_d', { noremap = true })
+vim.keymap.set('n', 'c', '"_c', { noremap = true })
