@@ -1,6 +1,8 @@
 vim.g.loaded_netrw = 0
 vim.g.loaded_netrwPlugin = 0
 
+vim.opt.guicursor = "n-v-i-c:block-Cusor"
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -41,5 +43,5 @@ vim.opt.maxmempattern = 2000
 -- vim.opt.foldmethod = "expr"
 -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
-vim.opt.termguicolors = false
-vim.cmd.colorscheme("default")
+-- vim.opt.termguicolors = false
+vim.cmd.colorscheme("neopywal")

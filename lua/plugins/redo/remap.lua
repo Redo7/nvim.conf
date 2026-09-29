@@ -8,7 +8,10 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Toggle Neotree
-vim.keymap.set("n", "<leader>b", ":Neotree filesystem reveal toggle right<CR>")
+vim.keymap.set("n", "<leader>b", ":Neotree filesystem reveal toggle right<CR>", { desc = "Toggle Sidebar" })
+
+-- Undrotree
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Undo Tree" })
 
 -- Join lines without moving cursor
 vim.keymap.set("n", "J", "mzJ`z")
@@ -32,7 +35,7 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- Color Picker
-vim.keymap.set("n", "<leader>c", "<cmd>CccPick<CR>")
+vim.keymap.set("n", "<leader>c", "<cmd>CccPick<CR>", { desc = "Color Picker" })
 
 -- Cmd + S -> Save/Write
 vim.keymap.set("n", "<D-s>", ":w<CR>")
@@ -46,36 +49,40 @@ vim.keymap.set("n", "<leader>re", ":PxToRemLine<CR>")
 -- Code Action
 vim.keymap.set("n", "<leader>.", vim.lsp.buf.code_action, { desc = "Code Action" })
 
+-- Diagnostics
+vim.keymap.set("n", "<leader>j", ":Trouble diagnostics toggle<CR>", { desc = "Toggle Diagnostics" })
+
+-- Terminal 
+vim.keymap.set("n", "<leader>k", ":ToggleTerm size=20 direction=horizontal name=Terminal<CR>", { desc = "Toggle Terminal" })
+vim.keymap.set("t", "<leader>k", "<C-\\><C-n>:ToggleTerm<CR>", { desc = "Toggle Terminal" })
+vim.keymap.set('t', '<esc>', "<C-\\><C-n>", { desc = "Exit Terminal Mode" })
+
 -- Tabs
 
 local map = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
 
 -- Switch to previous/next tab
-map('n', '<leader>a', '<Cmd>BufferPrevious<CR>', opts)
-map('n', '<leader>s', '<Cmd>BufferNext<CR>', opts)
+map('n', '<leader>a', '<Cmd>BufferPrevious<CR>', { desc = "Next Tab", noremap = true, silent = true })
+map('n', '<leader>s', '<Cmd>BufferNext<CR>', { desc = "Prev Tab", noremap = true, silent = true })
 
 -- Re-order to previous/next
-map('n', '<leader><S-a>', '<Cmd>BufferMovePrevious<CR>', opts)
-map('n', '<leader><S-s>', '<Cmd>BufferMoveNext<CR>', opts)
+map('n', '<leader><S-a>', '<Cmd>BufferMovePrevious<CR>', { desc = "Shift Tab Left", noremap = true, silent = true })
+map('n', '<leader><S-s>', '<Cmd>BufferMoveNext<CR>', { desc = "Shift Tab Right", noremap = true, silent = true })
 
 -- Close tab
-map('n', '<leader>w', '<Cmd>BufferClose<CR>', opts)
+map('n', '<leader>w', '<Cmd>BufferClose<CR>', { desc = "Close Tab", noremap = true, silent = true })
 
 -- Goto buffer in position...
-map('n', '<leader>1', '<Cmd>BufferGoto 1<CR>', opts)
-map('n', '<leader>2', '<Cmd>BufferGoto 2<CR>', opts)
-map('n', '<leader>3', '<Cmd>BufferGoto 3<CR>', opts)
-map('n', '<leader>4', '<Cmd>BufferGoto 4<CR>', opts)
-map('n', '<leader>5', '<Cmd>BufferGoto 5<CR>', opts)
-map('n', '<leader>6', '<Cmd>BufferGoto 6<CR>', opts)
-map('n', '<leader>7', '<Cmd>BufferGoto 7<CR>', opts)
-map('n', '<leader>8', '<Cmd>BufferGoto 8<CR>', opts)
-map('n', '<leader>9', '<Cmd>BufferGoto 9<CR>', opts)
-map('n', '<leader>0', '<Cmd>BufferLast<CR>', opts)
-
--- Close buffer
-map('n', '<leader>w', '<Cmd>BufferClose<CR>', opts)
+map('n', '<leader>1', '<Cmd>BufferGoto 1<CR>', { desc = "Focus Tab 1", noremap = true, silent = true })
+map('n', '<leader>2', '<Cmd>BufferGoto 2<CR>', { desc = "Focus Tab 2", noremap = true, silent = true })
+map('n', '<leader>3', '<Cmd>BufferGoto 3<CR>', { desc = "Focus Tab 3", noremap = true, silent = true })
+map('n', '<leader>4', '<Cmd>BufferGoto 4<CR>', { desc = "Focus Tab 4", noremap = true, silent = true })
+map('n', '<leader>5', '<Cmd>BufferGoto 5<CR>', { desc = "Focus Tab 5", noremap = true, silent = true })
+map('n', '<leader>6', '<Cmd>BufferGoto 6<CR>', { desc = "Focus Tab 6", noremap = true, silent = true })
+map('n', '<leader>7', '<Cmd>BufferGoto 7<CR>', { desc = "Focus Tab 7", noremap = true, silent = true })
+map('n', '<leader>8', '<Cmd>BufferGoto 8<CR>', { desc = "Focus Tab 8", noremap = true, silent = true })
+map('n', '<leader>9', '<Cmd>BufferGoto 9<CR>', { desc = "Focus Tab 9", noremap = true, silent = true })
+map('n', '<leader>0', '<Cmd>BufferLast<CR>', { desc = "Focus Tab 10", noremap = true, silent = true })
 
 -- Keep selection after indenting
 vim.keymap.set('v', '<', '<gv', { noremap = true })
